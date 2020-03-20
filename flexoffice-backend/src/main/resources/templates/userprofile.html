@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>User Profile</title>
+</head>
+<body>
+<h2> User profile </h2>
+<hr/>
+<div id="userp" th:fragment="userp">
+    <table>
+        <tr>
+            <td> <a th:href="@{userprofile/informations}">  Vos informations ></a></td>
+            <td> <a th:href="@{userprofile/souscriptions}"> Vos souscriptions <cite th:text="${nbsous}"></cite></a></td>
+            <td> <a th:href="@{userprofile/favoris}"> Vos favoris</a></td>
+            <td> <a th:href="@{userprofile/alertes}"> Vos alertes</a></td>
+            <td> <a th:href="@{userprofile/activites}"> Vos activités</a></td>
+        </tr>
+    </table>
+</div>
+
+
+<div id="usouscription" th:fragment="usouscription">
+    <table>
+        <tr th:each="sous:${souscriptions}">
+            <td th:text="${sous.trainingSession.startDate}"> </td>
+            <td th:text="${sous.trainingSession.endDate}"> </td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+</body>
+</html>

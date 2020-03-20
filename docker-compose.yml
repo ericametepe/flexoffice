@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+  db:
+    build:
+      context: db
+      dockerfile: Dockerfile
+    image: ericametepe/postgis
+    volumes:
+    - flexo-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  flexo-backend:
+    depends_on:
+      - db
+    build:
+      context: flexoffice-backend
+      dockerfile: Dockerfile
+    image: ericametepe/flexoffice-backend
+    ports:
+        - 8080:8080
+
+  web:
+    depends_on:
+      - flexo-backend
+    build:
+      context: flexoffice-vue-app
+      dockerfile: Dockerfile
+    image: ericametepe/flexo-web
+    ports:
+       - 8081:80
+
+
+volumes:
+  flexo-data:
