@@ -1,0 +1,120 @@
+{
+  "documentation": "https://opencagedata.com/api",
+  "licenses": [{
+    "name": "see attribution guide",
+    "url": "https://opencagedata.com/credits"
+  }],
+  "rate": {
+    "limit": 2500,
+    "remaining": 2492,
+    "reset": 1576195200
+  },
+  "results": [{
+    "annotations": {
+      "DMS": {
+        "lat": "48\u00b0 56' 49.92000'' N",
+        "lng": "3\u00b0 4' 59.88000'' E"
+      },
+      "MGRS": "31UEQ0609921589",
+      "Maidenhead": "JN18mw97xh",
+      "Mercator": {
+        "x": 343231.386,
+        "y": 6233667.615
+      },
+      "OSM": {
+        "url": "https://www.openstreetmap.org/?mlat=48.94720&mlon=3.08330#map=16/48.94720/3.08330"
+      },
+      "UN_M49": {
+        "regions": {
+          "EUROPE": "150",
+          "FR": "250",
+          "WESTERN_EUROPE": "155",
+          "WORLD": "001"
+        },
+        "statistical_groupings": [
+          "MEDC"
+        ]
+      },
+      "callingcode": 33,
+      "currency": {
+        "alternate_symbols": [],
+        "decimal_mark": ",",
+        "html_entity": "&#x20AC;",
+        "iso_code": "EUR",
+        "iso_numeric": "978",
+        "name": "Euro",
+        "smallest_denomination": 1,
+        "subunit": "Cent",
+        "subunit_to_unit": 100,
+        "symbol": "\u20ac",
+        "symbol_first": 1,
+        "thousands_separator": "."
+      },
+      "flag": "\ud83c\uddeb\ud83c\uddf7",
+      "geohash": "u0dnqnt4n57j5syj8134",
+      "qibla": 120.09,
+      "roadinfo": {
+        "drive_on": "right",
+        "speed_in": "km/h"
+      },
+      "sun": {
+        "rise": {
+          "apparent": 1576135980,
+          "astronomical": 1576129020,
+          "civil": 1576133760,
+          "nautical": 1576131300
+        },
+        "set": {
+          "apparent": 1576165800,
+          "astronomical": 1576172700,
+          "civil": 1576168020,
+          "nautical": 1576170420
+        }
+      },
+      "timezone": {
+        "name": "Europe/Paris",
+        "now_in_dst": 0,
+        "offset_sec": 3600,
+        "offset_string": "+0100",
+        "short_name": "CET"
+      },
+      "what3words": {
+        "words": "transplants.birdbath.tournaments"
+      }
+    },
+    "components": {
+      "ISO_3166-1_alpha-2": "FR",
+      "ISO_3166-1_alpha-3": "FRA",
+      "_type": "county",
+      "continent": "Europe",
+      "country": "France",
+      "country_code": "fr",
+      "county": "Seine-et-Marne",
+      "local_administrative_area": "Arrondissement de Meaux",
+      "political_union": "European Union",
+      "postcode": "77260",
+      "state": "\u00cele-de-France",
+      "state_code": "IDF"
+    },
+    "confidence": 9,
+    "formatted": "77260 \u00cele-de-France, France",
+    "geometry": {
+      "lat": 48.9472,
+      "lng": 3.0833
+    }
+  }],
+  "status": {
+    "code": 200,
+    "message": "OK"
+  },
+  "stay_informed": {
+    "blog": "https://blog.opencagedata.com",
+    "twitter": "https://twitter.com/opencagedata"
+  },
+  "thanks": "For using an OpenCage API",
+  "timestamp": {
+    "created_http": "Thu, 12 Dec 2019 10:59:39 GMT",
+    "created_unix": 1576148379
+  },
+  "total_results": 1
+}
