@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id="form">
+    <form th:object="${formationForm}" th:action="@{/search}" method="post">
+    <ul>
+        <li>
+            <input th:field="*{keyword}" placeholder="Mot cle de la formation" type="search" />
+            <label for="Statu">Statut</label>
+            <select th:field="*{pub}" th:remove="all-but-first">
+                <option th:each="pub : ${pubs}"
+                        th:value="${pub}" th:text="${pub}">Statut professionnel</option>
+                <option>Another statut</option>
+                <option>Statut </option>
+            </select>
+
+            <select th:field="*{region}">
+                <option th:each="region:${regions}" th:value="${region}" th:text="${region}">
+
+                </option>
+            </select>
+        </li>
+        <li>  <input type="submit" value="Envoyer"> </input></li>
+    </ul>
+    </form>
+</div>
+</body>
+</html>

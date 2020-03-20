@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id="noresult" th:if="${#lists.isEmpty(formations)}">
+    <p> Pas de formation </p>
+</div>
+
+ <div id="result" th:if="${not #lists.isEmpty(formations)}">
+    <ul>
+   <li th:each="formation: ${formations}">
+       <p th:text="${formation.intitule.originalText}"></p>
+  </li>
+    </ul>
+</div>
+</body>
+</html>

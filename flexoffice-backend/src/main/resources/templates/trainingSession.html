@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div id="list" th:fragment="list">
+    <table>
+        <thead>
+        <tr>
+            <td>Date debut </td>
+            <td>Date fin </td>
+            <td> Adresse </td>
+            <td>Actions</td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="ts:${trainingSession}">
+            <td th:text="${ts.startDate==null? 'Date à renseigner' :#dates.format(ts.startDate,'dd/MMM/yyyy HH:mm')}" ></td>
+            <td th:text="${ts.endDate==null?  'Date à renseigner': #dates.format(ts.endDate,'dd/MMM/yyyy HH:mm')}"></td>
+            <td th:text="${ts.address}"></td>
+            <td>
+                <ul>
+                    <li><a th:href="@{'/trainingsession/'+${ts.id}+'/update'}">Modifier </a></li>
+                    <li><a th:href="@{'/trainingsession/'+${ts.id}+'/souscrire'}">S'inscrire </a></li>
+
+                </ul>
+
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+<div id="one" th:fragment="one">
+
+    <table>
+        <thead>
+        <tr>
+            <td>Organisme de formation</td>
+            <td>Intitule de formation</td>
+            <td>Date debut </td>
+            <td>Date fin </td>
+            <td> Adresse </td>
+            <td>Actions</td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td th:text="${ts.trainingOrganisation.name}"></td>
+            <td th:text="${ts.trainingOrganisation.name}"></td>
+            <td th:text="${ts.startDate==null? 'Date à renseigner' :#dates.format(ts.startDate,'dd/MMM/yyyy HH:mm')}" ></td>
+            <td th:text="${ts.endDate==null?  'Date à renseigner': #dates.format(ts.endDate,'dd/MMM/yyyy HH:mm')}"></td>
+            <td th:text="${ts.address}"></td>
+            <td> <a th:href="@{'/trainingsession/'+${ts.id}+'/update'}">Modifier </a></td>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <div id="formup" th:fragment="oneupdate">
+        <form id="addSession" th:object="${trainingSesionForm}" method="post" th:action="@{'/trainingsession/'+${trainingSesionForm.id}+'/update'}">
+            <ul>
+                <li>
+                    <input readonly="readonly" type="text" placeholder="code cpf de la formation"  th:field="*{formation.intitule.originalText}" th:value="${trainingSesionForm.formation.intitule.originalText}"/>
+
+
+                    <input  readonly="readonly" type="text" placeholder="nom de l'organisme de formation"  th:field="*{trainingOrganisation.name}" th:value="${trainingSesionForm.trainingOrganisation.name}"/>
+                </li>
+                <li>
+                    <input type="text" th:placeholder="${dateFormat}" th:field="*{start}"/>
+                    <input type="text" th:placeholder="${dateFormat}"  th:field="*{end}"/>
+                </li>
+                <li>
+                    <input placeholder="Adresse du point de formation" type="text"  th:field="*{address.line1}"/>
+                    <input placeholder="Ville" type="text" th:value="${trainingSesionForm.address.city}"  th:field="*{address.city}"/>
+                    <input placeholder="Code postal" type="text" th:value="${trainingSesionForm.address.postalCode}"  th:field="*{address.postalCode}"/>
+                    <input placeholder="Pays" type="text"  th:value="${trainingSesionForm.address.country}"  th:field="*{address.country}"/>
+                </li>
+
+                <li>
+                    <input type="submit" value="Modifier"/>
+                </li>
+            </ul>
+        </form>
+
+
+    </div>
+
+
+
+
+
+</div>
+
+</body>
+</html>
