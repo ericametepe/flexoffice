@@ -7,7 +7,9 @@ Run the App
 cd flexo-app
 docker-compose up -d 
 
-Build a service
+Build & run a specific  service
+
 docker-compose build web
+
 docker-compose up --no-deps -d web
 
