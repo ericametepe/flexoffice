@@ -17,4 +17,6 @@ e.g : docker-compose build web
 The App is here :
 http://localhost:8081/
 
+For good experience activate the geolocalisation
+
 
