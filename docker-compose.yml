@@ -23,9 +23,6 @@ services:
   web:
     depends_on:
       - flexo-backend
-    build:
-      context: flexoffice-vue-app
-      dockerfile: Dockerfile
     image: ericametepe/flexo-web
     ports:
        - 8081:80
