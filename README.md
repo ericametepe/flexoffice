@@ -1,16 +1,20 @@
-Be sure you have Docker up and running !
+Be sure you have Docker up
 
 Edit the /etc/hosts
 ADD  127.0.0.1       flexo-backend
+ADD  127.0.0.1       db
 
 Run the App
 cd flexo-app
-docker-compose up -d 
+docker-compose build
+docker-compose up -d
 
-Build & run a specific  service
+After change : 
+Build a service
+e.g : docker-compose build web
 
-e.g the service web
- - docker-compose build web
- - docker-compose up --no-deps -d web
- 
+
+The App is here :
+http://localhost:8081/
+
 
