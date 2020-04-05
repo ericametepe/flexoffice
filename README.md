@@ -10,6 +10,7 @@ Run the App
 cd flexoffice
 
 docker-compose build
+
 docker-compose up -d
 
 After change : 
