@@ -7,6 +7,7 @@ ADD  127.0.0.1       flexo-backend
 ADD  127.0.0.1       db
 
 Run the App
+
 cd flexoffice
 
 docker-compose build
