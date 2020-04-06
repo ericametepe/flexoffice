@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id="list" th:fragment="list">
+    <ul>
+        <li th:each="org:${organisations}">
+            <a th:href="@{'/organisations/'+${org.id}}"> <p th:text="${org.name}"></p></a>
+            <p th:text="${org.address}"></p>
+        </li>
+        <p> <a th:href="@{/organisations/new}"> Ajouter une organisation </a> </p>
+    </ul>
+</div>
+
+
+<div id="one" th:fragment="one">
+    <p th:text="${organisation.name}"></p>
+    <p th:text="${organisation.address}"></p>
+    <p th:text="${#lists.size(organisation.formations) +'  Formations disponibles'}"> Formations disponibles </p>
+    <ul>
+        <li th:each="form:${organisation.formations}">
+            <p th:text="${form.intitule.originalText}">
+            </p>
+            <ul>
+                <li th:each="tsession:${formSessionMap[__${form.id}__]}">
+                <p th:text="${'n°' + ${tsession.id} + 'disponible' }"></p>
+
+                    <p th:text="${#dates.format(tsession.start,'dd/MM/yyyy') +' au ' + #dates.format(tsession.end,'dd/MM/yyyy') }"></p>
+
+                </li>
+            </ul>
+
+            <a th:href="@{'/organisations/'+${organisation.id}+'/formations/'+${form.id} +'/new/sessions'}"> Ajouter une session de formation </a>
+
+
+        </li>
+    </ul>
+
+    <p> <a th:href="@{'/organisations/'+${organisation.id}+'/new/formations'}"> Associer une formation </a> </p>
+
+</div>
+
+
+<div id="formorg" th:fragment="addorg">
+<form id="addorg" th:object="${organisation}" method="post" th:action="@{/organisations/new}">
+    <input type="text" placeholder="nom du centre de formation" th:field="*{name}"/>
+    <input type="text" placeholder="addresse du centre" th:field="*{address}"/>
+    <input type="submit" value="Ajouter"/>
+</form>
+
+</div>
+
+
+
+<div id="addform" th:fragment="addform">
+    <form id="addform" th:object="${formation}" method="post" th:action="@{'/organisations/'+${id}+'/new/formations'}">
+        <input type="text" placeholder="code cpf de la formation" th:field="*{codeCpf}"/>
+        <input type="submit" value="Ajouter"/>
+    </form>
+</div>
+
+
+
+<div id="addSesionForm" th:fragment="addsession">
+    <form id="addSession" th:object="${trainingSesionForm}" method="post" th:action="@{'/trainingsession/'+${trainingSesionForm.idOrg}+'/update'}">
+        <ul>
+            <li>
+                <input readonly="readonly" type="text" placeholder="code cpf de la formation"  th:field="*{formationName}" th:value="${trainingSesionForm.formationName}"/>
+
+
+        <input  readonly="readonly" type="text" placeholder="nom de l'organisme de formation"  th:field="*{orgName}" th:value="${trainingSesionForm.orgName}"/>
+            </li>
+            <li>
+                <input type="text" th:placeholder="${dateFormat}" th:field="*{start}"/>
+                <input type="text" th:placeholder="${dateFormat}"  th:field="*{end}"/>
+            </li>
+            <li>
+                <input placeholder="Adresse du point de formation" type="text"  th:field="*{address.line1}"/>
+                <input placeholder="Ville" type="text"  th:field="*{address.city}"/>
+                <input placeholder="Code postal" type="text"  th:field="*{address.postalCode}"/>
+                <input placeholder="Pays" type="text"  th:field="*{address.country}"/>
+            </li>
+
+      <li>
+          <input type="submit" value="Ajouter"/>
+      </li>
+        </ul>
+    </form>
+</div>
+
+
+</body>
+</html>

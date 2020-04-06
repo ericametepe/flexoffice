@@ -1,0 +1,5 @@
+FROM mdillon/postgis
+ENV POSTGRES_USER dockeruser
+ENV POSTGRES_PASSWORD dockerpass
+ENV POSTGRES_DB flexo-db
+EXPOSE 5432

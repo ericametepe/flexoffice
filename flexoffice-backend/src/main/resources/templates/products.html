@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>FIP PRO</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:fragment="pform">
+<form name="pcond" th:action="@{/products}" method="post" >
+
+    <label> Select your product</label>
+    <select>
+        <option th:each="p:${products}" th:value="${p.lpcode}" th:text="${p.lpname}" ></option>
+    </select>
+    <input type="submit" value="Choisir"/>
+</form>
+</div>
+
+<div th:fragment="descform">
+    <p>Condition generale</p>
+
+    <p th:text="${p.}"></p>
+
+</div>
+
+
+
+</body>
+</html>

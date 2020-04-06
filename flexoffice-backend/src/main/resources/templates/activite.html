@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Branche d'activite</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id="formact" th:fragment="addactivite">
+    <form id="addorg" th:object="${activite}" method="post" th:action="@{/activites/new}">
+        <input type="text" placeholder="code APE de la branche d'activite" th:field="*{codeAPE}"/>
+        <input type="text" placeholder="libellle code APE " th:field="*{name}"/>
+        <input type="submit" value="Ajouter"/>
+    </form>
+
+</div>
+
+<div id="listorg" th:fragment="list">
+    <h2> Liste des organismes</h2>
+    <ul>
+        <li th:each="act:${activites}">
+            <a th:href="@{'/activites/'+${act.id}}"> <p th:text="${act.name}"></p></a>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+</body>
+</html>

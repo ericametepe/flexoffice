@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started:Formation detail by cpf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="formacpf">
+    <h1>Descriptif de la formation </h1>
+    <p th:text="${'Intitule :   ' +formation.intitule.originalText}"></p>
+    <p th:text="${'Code CPF  :  ' + formation.codeCPF}"></p>
+</div>
+<div class="noorg">
+<h1 th:if="${#lists.isEmpty(formation.trainingOrganisations)}"> Aucun  organisme de formation référencé</h1>
+</div>
+
+<div id="listorg" th:if="${not #lists.isEmpty(formation.trainingOrganisations)}">
+    <h2> Liste des organismes</h2>
+    <ul>
+        <li th:each="org:${formation.trainingOrganisations}">
+            <a th:href="@{'/organisations/'+${org.id}}"> <p th:text="${org.name}"></p></a>
+            <p th:text="${org.address}"></p>
+        </li>e
+    </ul>
+</div>
+
+
+<div id="formorg" th:fragment="addorg">
+    <form id="addorg" th:object="${organisation}" method="post" th:action="@{/organisations/new}">
+        <input type="text" placeholder="nom du centre de formation" th:field="*{name}"/>
+        <input type="text" placeholder="addresse du centre" th:field="*{address}"/>
+        <input type="submit" value="Ajouter"/>
+    </form>
+
+</div>
+</body>
+</html>
