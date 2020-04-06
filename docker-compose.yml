@@ -5,6 +5,9 @@ services:
       context: db
       dockerfile: Dockerfile
     image: ericametepe/postgis
+    hostname: db
+    networks:
+      - flexonet
     volumes:
     - flexo-data:/var/lib/postgresql/data
     ports:
@@ -17,6 +20,9 @@ services:
       context: flexoffice-backend
       dockerfile: Dockerfile
     image: ericametepe/flexoffice-backend
+    hostname: flexoffice-backend
+    networks:
+      - flexonet
     ports:
         - 8080:8080
 
@@ -24,9 +30,13 @@ services:
     depends_on:
       - flexo-backend
     image: ericametepe/flexo-web
+    networks:
+      - flexonet
     ports:
        - 8081:80
 
 
 volumes:
   flexo-data:
+networks:
+  flexonet:
