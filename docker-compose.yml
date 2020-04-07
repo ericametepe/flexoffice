@@ -20,7 +20,7 @@ services:
       context: flexoffice-backend
       dockerfile: Dockerfile
     image: ericametepe/flexoffice-backend
-    hostname: flexoffice-backend
+    hostname: flexo-backend
     networks:
       - flexonet
     ports:
@@ -30,6 +30,10 @@ services:
     depends_on:
       - flexo-backend
     image: ericametepe/flexo-web
+    build:
+      context: flexoffice-vue-app
+      dockerfile: Dockerfile
+    hostname: flexo
     networks:
       - flexonet
     ports:
@@ -40,3 +44,4 @@ volumes:
   flexo-data:
 networks:
   flexonet:
+   driver: bridge
