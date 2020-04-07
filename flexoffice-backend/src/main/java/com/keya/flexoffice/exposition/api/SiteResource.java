@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Set;
 
 
-//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/flexoffice")
