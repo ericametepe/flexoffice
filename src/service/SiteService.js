@@ -3,7 +3,7 @@ import profile from './UserProfileService';
       //const FLEX_URL = `http://localhost:9090/flexoffice/sites`;
       //const FLEX_URL = `http://localhost:8080/flexoffice/sites`;
        const DOCKER_HOST=`flexo-backend`;
-      const FLEX_URL = `http://${DOCKER_HOST}:8080/flexoffice/sites`;
+       const FLEX_URL = `http://${DOCKER_HOST}:8080/flexoffice/sites`;
        //const FLEX_URL = `http://localhost:8080/flexoffice/sites`;
        //const host = `192.168.1.85`;
 
