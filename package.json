@@ -16,7 +16,7 @@
     "file-system": "^2.2.2",
     "fs": "0.0.1-security",
     "gulp-print": "^5.0.2",
-    "jquery": "^1.9.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "numeral": "^2.0.6",
     "semantic-ui-css": "^2.4.1",
